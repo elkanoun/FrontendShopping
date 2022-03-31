@@ -1,0 +1,290 @@
+<!-- main-container -->
+<div class="main-container col2-right-layout">
+  <div class="main container">
+    <div class="row">
+      <section class="col-main col-sm-9 wow bounceInUp animated">
+        <div class="page-title">
+          <h1>Checkout</h1>
+        </div>
+        <ol class="one-page-checkout" id="disabled_checkoutSteps">
+          <li id="disabled_opc-shipping" [ngClass]="{'section': true, 'active': !showPayInfo}">
+            <div class="step-title"> <span class="number">1</span>
+              <h3 class="one_page_heading"> Shipping Information</h3>
+              <!--<a href="#">Edit</a>-->
+            </div>
+            <div id="disabled_checkout-step-shipping" class="step a-item" *ngIf="!showPayInfo">
+              <form #shippingForm="ngForm" (ngSubmit)="shippingInfo(shippingForm)" id="disabled_co-shipping-form">
+                <fieldset class="group-select">
+                  <ul>
+                    <li id="disabled_shipping-new-address-form">
+                      <fieldset>
+                        <ul>
+                          <li>
+                            <div class="customer-name">
+                              <div class="input-box name-firstname">
+                                <label for="disabled_shipping:firstname"> First Name <span class="required">*</span>
+                                </label>
+                                <br>
+                                <input type="text" id="disabled_shipping:firstname" name="shipInfo.firstName"
+                                  [(ngModel)]="shipInfo.firstName" title="First Name" class="input-text required-entry">
+                              </div>
+                              <div class="input-box name-lastname">
+                                <label for="disabled_shipping:lastname"> Last Name <span class="required">*</span>
+                                </label>
+                                <br>
+                                <input type="text" id="disabled_shipping:lastname" name="shipInfo.lastName"
+                                  [(ngModel)]="shipInfo.lastName" title="Last Name" class="input-text required-entry">
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <label for="disabled_shipping:street1">Address <span class="required">*</span></label>
+                            <br>
+                            <input type="text" title="Street Address" name="shipInfo.address1"
+                                [(ngModel)]="shipInfo.address1"
+                              id="disabled_shipping:street1" value="" class="input-text required-entry">
+                          </li>
+                          <li>
+                            <input type="text" title="Street Address 2" name="shipInfo.address2"
+                                [(ngModel)]="shipInfo.address2"
+                              id="disabled_shipping:street2" value="" class="input-text">
+                          </li>
+                          <li>
+                            <div class="input-box">
+                              <label for="disabled_shipping:country_id">Country <span class="required">*</span></label>
+                              <br>
+                              <select name="shipInfo.country"
+                                [(ngModel)]="shipInfo.country" class="validate-select" id="country"
+                                (change)="selectedCountry($event)" *ngIf="countries">
+                                <option *ngFor="let country of countries._embedded.countries" value="country.id"
+                                [selected]="country.name === 'Morocco'?'selected':''">
+                                  {{ country.name }}
+                                </option>
+                              </select>
+                            </div>
+                            <div class="input-box">
+                              <label for="disabled_shipping:city">City <span class="required">*</span></label>
+                              <br>
+                              <select name="shipInfo.city"
+                                [(ngModel)]="shipInfo.city" (change)="selectedCity($event)"
+                                class="required-entry validate-select" *ngIf="citiesOfCountry">
+                                <option *ngFor="let city of citiesOfCountry._embedded.cities" value="{{city.id}}"
+                                  title="Alabama">{{city.name}}</option>
+                              </select>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="input-box">
+                              <label for="disabled_shipping:postcode">Zip/Postal Code <span
+                                  class="required">*</span></label>
+                              <br>
+                              <input type="text" title="Zip/Postal Code" id="disabled_shipping:postcode" name="shipInfo.zipCode"
+                                [(ngModel)]="shipInfo.zipCode"
+                                class="input-text validate-zip-international required-entry">
+                            </div>
+                            <div class="input-box">
+                              <label for="disabled_shipping:telephone">Telephone <span class="required">*</span></label>
+                              <br>
+                              <input type="text" name="shipInfo.telephone"
+                                [(ngModel)]="shipInfo.telephone" title="Telephone"
+                                class="input-text required-entry" id="disabled_shipping:telephone">
+                            </div>
+                          </li>
+                          <li>
+                            <input type="checkbox" name="shipInfo.useBillingAddress"
+                                [(ngModel)]="shipInfo.useBillingAddress"
+                              id="disabled_shipping:same_as_billing" class="checkbox">
+                            <label for="disabled_shipping:same_as_billing">Use Billing Address</label>
+                          </li>
+                        </ul>
+                      </fieldset>
+                    </li>
+                  </ul>
+                  <div class="buttons-set1" id="disabled_shipping-buttons-container">
+                    <button class="button" [disabled]="shipInfoValid"><span>Continue</span></button>
+                    <a routerLink="/catalog/shopping_cart" class="back-link">« Back</a>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </li>
+          <li id="disabled_opc-payment" class="section" [class.active]="showPayInfo">
+            <div class="step-title"> <span class="number">2</span>
+              <h3 class="one_page_heading">Payment Information</h3>
+              <!--<a href="#">Edit</a>-->
+            </div>
+            <div id="disabled_checkout-step-payment" class="step a-item" *ngIf="showPayInfo">
+              <form #paymentForm="ngForm" (ngSubmit)="pymentInfo(paymentForm)">
+                <dl id="disabled_checkout-payment-method-load">
+                  <dt>
+                    <input type="radio" name="payInfo.method"  [(ngModel)]="payInfo.method" title="Check / Money order"
+                      class="radio" value="Check / Money order" id="disabled_p_method_checkmo" (change)="showCreditCart = false">
+                    <label for="disabled_p_method_checkmo">Check / Money order</label>
+                  </dt>
+                  <dd>
+                    <fieldset class="form-list">
+                    </fieldset>
+                  </dd>
+                  <dt>
+                    <input type="radio" name="payInfo.method"  [(ngModel)]="payInfo.method" title="Credit Card (saved)"
+                      class="radio" value="Credit Card"  id="disabled_p_method_ccsave" (change)="showCreditCart = true">
+                    <label for="disabled_p_method_ccsave">Credit Card (saved)</label>
+                  </dt>
+                  <dd *ngIf="showCreditCart">
+                    <fieldset class="form-list">
+                      <ul id="disabled_payment_form_ccsave">
+                        <li>
+                          <div class="input-box">
+                            <label for="disabled_ccsave_cc_owner">Name on Card <span class="required">*</span></label>
+                            <br>
+                            <input type="text" title="Name on Card" class="input-text required-entry" name="payInfo.nameOnCard"
+                                [(ngModel)]="payInfo.nameOnCard">
+                          </div>
+                        </li>
+                        <li>
+                          <div class="input-box">
+                            <label for="disabled_ccsave_cc_type">Credit Card Type <span
+                                class="required">*</span></label>
+                            <br>
+                            <select name="payInfo.type"
+                                [(ngModel)]="payInfo.type"
+                              class="required-entry validate-cc-type-select">
+                              <option value="">--Please Select--</option>
+                              <option value="AE">American Express</option>
+                              <option value="VI">Visa</option>
+                              <option value="MC">MasterCard</option>
+                              <option value="DI">Discover</option>
+                            </select>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="input-box">
+                            <label for="disabled_ccsave_cc_number">Credit Card Number <span
+                                class="required">*</span></label>
+                            <br>
+                            <input type="text" name="payInfo.numberCard"
+                                [(ngModel)]="payInfo.numberCard"
+                              title="Credit Card Number" class="input-text validate-cc-number validate-cc-type">
+                          </div>
+                        </li>
+                        <li>
+                          <div class="input-box">
+                            <label for="disabled_ccsave_expiration">Expiration Date <span
+                                class="required">*</span></label>
+                            <br>
+                            <div class="v-fix">
+                              <select name="payInfo.expirationMonth"
+                                [(ngModel)]="payInfo.expirationMonth" class="required-entry">
+                                <option value="" selected="selected">Month</option>
+                                <option value="1">01 - January</option>
+                                <option value="2">02 - February</option>
+                                <option value="3">03 - March</option>
+                                <option value="4">04 - April</option>
+                                <option value="5">05 - May</option>
+                                <option value="6">06 - June</option>
+                                <option value="7">07 - July</option>
+                                <option value="8">08 - August</option>
+                                <option value="9">09 - September</option>
+                                <option value="10">10 - October</option>
+                                <option value="11">11 - November</option>
+                                <option value="12">12 - December</option>
+                              </select>
+                            </div>
+                            <div class="v-fix">
+                              <select name="payInfo.expirationYear"
+                                [(ngModel)]="payInfo.expirationYear" class="required-entry">
+                                <option value="" selected="selected">Year</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                              </select>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="input-box">
+                            <label for="disabled_ccsave_cc_cid">Card Verification Number <span
+                                class="required">*</span></label>
+                            <br>
+                            <div class="v-fix">
+                              <input type="text" title="Card Verification Number"
+                                class="input-text required-entry validate-cc-cvn" name="payInfo.cvn"
+                                [(ngModel)]="payInfo.cvn">
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </fieldset>
+                  </dd>
+                </dl>
+              </form>
+              <div class="buttons-set1" id="disabled_payment-buttons-container">
+                <button type="button" class="button" (click)="pymentInfo()"><span>Continue</span></button>
+                <a (click)="backToShipInfo()" class="back-link">« Back</a></div>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <aside class="col-right sidebar col-sm-3 wow bounceInUp animated">
+        <div class="block block-progress">
+          <div class="block-title ">Your Checkout</div>
+          <div class="block-content">
+            <dl>
+              <dt class="complete"> Billing Address <span class="separator">|</span> <a href="#billing">Change</a> </dt>
+              <dd class="complete">
+                <address *ngIf="!shipInfo.useBillingAddress">
+                  <div *ngIf="billingInfo.firstName">{{ billingInfo.firstName }} {{ billingInfo.lastName }}</div>
+                  <div *ngIf="billingInfo.address1">{{ billingInfo.address1 }}</div>
+                  <div *ngIf="billingInfo.address2">{{ billingInfo.address2 }}</div>
+                  <div *ngIf="billingInfo.zipCode">{{ billingInfo.zipCode }}</div>
+                  <div *ngIf="billingInfo.city">{{ billingInfo.city }}</div>
+                  <div *ngIf="billingInfo.country">{{ billingInfo.country }}</div>
+                  <div *ngIf="billingInfo.telephone">T: {{ billingInfo.telephone }}</div>
+                </address>
+                <address *ngIf="shipInfo.useBillingAddress">
+                  <div *ngIf="shipInfo.firstName">{{ shipInfo.firstName }} {{ shipInfo.lastName }}</div>
+                  <div *ngIf="shipInfo.address1">{{ shipInfo.address1 }}</div>
+                  <div *ngIf="shipInfo.address2">{{ shipInfo.address2 }}</div>
+                  <div *ngIf="shipInfo.zipCode">{{ shipInfo.zipCode }}</div>
+                  <div *ngIf="shipInfo.city" >{{ shippingCityName }}</div>
+                  <div *ngIf="shipInfo.country">{{ shippingCountryName }}</div>
+                  <div *ngIf="shipInfo.telephone">T: {{ shipInfo.telephone }}</div>
+                </address>
+              </dd>
+              <dt class="complete"> Shipping Address <span class="separator">|</span> <a href="#payment">Change</a>
+              </dt>
+              <dd class="complete">
+                <address>
+                  <div *ngIf="shipInfo.firstName">{{ shipInfo.firstName }} {{ shipInfo.lastName }}</div>
+                  <div *ngIf="shipInfo.address1">{{ shipInfo.address1 }}</div>
+                  <div *ngIf="shipInfo.address2">{{ shipInfo.address2 }}</div>
+                  <div *ngIf="shipInfo.zipCode">{{ shipInfo.zipCode }}</div>
+                  <div *ngIf="shipInfo.city">{{ shippingCityName }}</div>
+                  <div *ngIf="shipInfo.country">{{ shippingCountryName }}</div>
+                  <div *ngIf="shipInfo.telephone">T: {{ shipInfo.telephone }}</div>
+                </address>
+              </dd>
+              <dt class="complete"> Shipping Method <span class="separator" *ngIf="shippingRate > 0">|</span> <a
+                  href="#shipping_method">Change</a>
+              </dt>
+              <dd class="complete" *ngIf="shippingRate > 0"> Shipping Rate <br>
+                <span class="price">{{ shippingRate | number:'.2-2' }} Dhs</span>
+              </dd>
+              <dt> Payment Method </dt>
+              <dd class="complete"></dd>
+            </dl>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+<!--End main-container -->

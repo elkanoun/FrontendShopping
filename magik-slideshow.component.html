@@ -1,0 +1,316 @@
+<div class="magik-slideshow wow bounceInUp animated" id="magik-slideshow">
+  <div class="container">
+    <div class="row">
+      <div class="LHS-nav col-lg-3 col-md-4">
+        <div id="magik-verticalmenu" class="block magik-verticalmenu">
+          <div class="nav-title"> <span>Categories</span> </div>
+          <div class="nav-content">
+            <div class="navbar navbar-inverse">
+              <div id="verticalmenu" class="verticalmenu" role="navigation">
+                <div class="navbar">
+                  <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav verticalmenu" *ngIf="menu">
+                      <li class=" parent dropdown " *ngFor="let d of menu">
+                        <a *ngIf="d.principal" class="dropdown-toggle" data-toggle="dropdown">
+                          <span [id]="d.id" class="menu-title">{{ d.name }}</span><b
+                            [class.round-arrow]="d.categoryGlob"></b>
+                        </a>
+                        <div class="dropdown-menu">
+                          <div class="dropdown-menu-inner">
+                            <div class="row">
+                              <div class="mega-col col-sm-66" data-widgets="wid-5" data-colwidth="6"
+                                *ngFor="let c of d.categoryGlob">
+                                <div class="mega-col-inner">
+                                  <div class="ves-widget">
+                                    <div [id]="c.id" class="menu-title">{{ c.name }} </div>
+                                    <div class="widget-html">
+                                      <div class="widget-inner">
+                                        <ul>
+                                          <li *ngFor="let sc of c.subCatGlob; index as i;" [class.first]="i == 0">
+                                            <a href="/product">
+                                              <span [id]="sc.id">{{ sc.name }}</span>
+                                            </a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+      <!-- assets/images/SlideShow/{{slide.img}} -->
+      <!-- *ngFor="let slide of slider"  -->
+      <div class="col-lg-6 col-sm-12 col-md-8">
+        <div id='rev_slider_4_wrapper' class='rev_slider_wrapper fullwidthbanner-container'>
+          <div id='rev_slider_4' class='rev_slider fullwidthabanner'>
+            <ul>
+                <li data-transition='random' data-slotamount='7' data-masterspeed='1000'
+                  data-thumb='assets/images/SlideShow/1.jpg'>
+                  <img src='assets/images/SlideShow/1.jpg' data-bgposition='left top' data-bgfit='cover'
+                    data-bgrepeat='no-repeat' alt="banner" />
+                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='45' data-y='30' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>
+                    Exclusive of designer
+                  </div>
+                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45' data-y='70' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>
+                    Handbags & Purses
+                  </div>
+                  <div class='tp-caption sfb  tp-resizeme ' data-x='45' data-y='360' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>
+                    <a href='#' class="view-more">
+                      View More
+                    </a>
+                    <a href='#' class="buy-btn">
+                      Buy Now
+                    </a>
+                  </div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='130' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>In augue urna, nunc, tincidunt, augue,<br>
+                    augue facilisis facilisis.</div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='400' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;font-size:11px'>Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit.
+                  </div>
+                </li>
+                <li data-transition='random' data-slotamount='7' data-masterspeed='1000'
+                  data-thumb='assets/images/SlideShow/1.jpg'>
+                  <img src='assets/images/SlideShow/2.jpg' data-bgposition='left top' data-bgfit='cover'
+                    data-bgrepeat='no-repeat' alt="banner" />
+                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='45' data-y='30' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>
+                    Exclusive of designer
+                  </div>
+                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45' data-y='70' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>
+                    Handbags & Purses
+                  </div>
+                  <div class='tp-caption sfb  tp-resizeme ' data-x='45' data-y='360' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>
+                    <a href='#' class="view-more">
+                      View More
+                    </a>
+                    <a href='#' class="buy-btn">
+                      Buy Now
+                    </a>
+                  </div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='130' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>In augue urna, nunc, tincidunt, augue,<br>
+                    augue facilisis facilisis.</div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='400' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;font-size:11px'>Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit.
+                  </div>
+                </li>
+                <li data-transition='random' data-slotamount='7' data-masterspeed='1000'
+                  data-thumb='assets/images/SlideShow/1.jpg'>
+                  <img src='assets/images/SlideShow/3.jpg' data-bgposition='left top' data-bgfit='cover'
+                    data-bgrepeat='no-repeat' alt="banner" />
+                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='45' data-y='30' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>
+                    Exclusive of designer
+                  </div>
+                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45' data-y='70' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>
+                    Handbags & Purses
+                  </div>
+                  <div class='tp-caption sfb  tp-resizeme ' data-x='45' data-y='360' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>
+                    <a href='#' class="view-more">
+                      View More
+                    </a>
+                    <a href='#' class="buy-btn">
+                      Buy Now
+                    </a>
+                  </div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='130' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>In augue urna, nunc, tincidunt, augue,<br>
+                    augue facilisis facilisis.</div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='400' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;font-size:11px'>Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit.
+                  </div>
+                </li>
+                <li data-transition='random' data-slotamount='7' data-masterspeed='1000'
+                  data-thumb='assets/images/SlideShow/1.jpg'>
+                  <img src='assets/images/SlideShow/4.jpg' data-bgposition='left top' data-bgfit='cover'
+                    data-bgrepeat='no-repeat' alt="banner" />
+                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='45' data-y='30' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>
+                    Exclusive of designer
+                  </div>
+                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45' data-y='70' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>
+                    Handbags & Purses
+                  </div>
+                  <div class='tp-caption sfb  tp-resizeme ' data-x='45' data-y='360' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>
+                    <a href='#' class="view-more">
+                      View More
+                    </a>
+                    <a href='#' class="buy-btn">
+                      Buy Now
+                    </a>
+                  </div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='130' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>In augue urna, nunc, tincidunt, augue,<br>
+                    augue facilisis facilisis.</div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='400' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;font-size:11px'>Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit.
+                  </div>
+                </li>
+                <li data-transition='random' data-slotamount='7' data-masterspeed='1000'
+                  data-thumb='assets/images/SlideShow/1.jpg'>
+                  <img src='assets/images/SlideShow/5.jpg' data-bgposition='left top' data-bgfit='cover'
+                    data-bgrepeat='no-repeat' alt="banner" />
+                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='45' data-y='30' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>
+                    Exclusive of designer
+                  </div>
+                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45' data-y='70' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>
+                    Handbags & Purses
+                  </div>
+                  <div class='tp-caption sfb  tp-resizeme ' data-x='45' data-y='360' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>
+                    <a href='#' class="view-more">
+                      View More
+                    </a>
+                    <a href='#' class="buy-btn">
+                      Buy Now
+                    </a>
+                  </div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='130' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>In augue urna, nunc, tincidunt, augue,<br>
+                    augue facilisis facilisis.</div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='400' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;font-size:11px'>Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit.
+                  </div>
+                </li>
+                <li data-transition='random' data-slotamount='7' data-masterspeed='1000'
+                  data-thumb='assets/images/SlideShow/1.jpg'>
+                  <img src='assets/images/SlideShow/6.jpg' data-bgposition='left top' data-bgfit='cover'
+                    data-bgrepeat='no-repeat' alt="banner" />
+                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='45' data-y='30' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>
+                    Exclusive of designer
+                  </div>
+                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45' data-y='70' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>
+                    Handbags & Purses
+                  </div>
+                  <div class='tp-caption sfb  tp-resizeme ' data-x='45' data-y='360' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>
+                    <a href='#' class="view-more">
+                      View More
+                    </a>
+                    <a href='#' class="buy-btn">
+                      Buy Now
+                    </a>
+                  </div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='130' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>In augue urna, nunc, tincidunt, augue,<br>
+                    augue facilisis facilisis.</div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='400' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;font-size:11px'>Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit.
+                  </div>
+                </li>
+                <li data-transition='random' data-slotamount='7' data-masterspeed='1000'
+                  data-thumb='assets/images/SlideShow/1.jpg'>
+                  <img src='assets/images/SlideShow/7.jpg' data-bgposition='left top' data-bgfit='cover'
+                    data-bgrepeat='no-repeat' alt="banner" />
+                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='45' data-y='30' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>
+                    Exclusive of designer
+                  </div>
+                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45' data-y='70' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>
+                    Handbags & Purses
+                  </div>
+                  <div class='tp-caption sfb  tp-resizeme ' data-x='45' data-y='360' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>
+                    <a href='#' class="view-more">
+                      View More
+                    </a>
+                    <a href='#' class="buy-btn">
+                      Buy Now
+                    </a>
+                  </div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='130' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>In augue urna, nunc, tincidunt, augue,<br>
+                    augue facilisis facilisis.</div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='400' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;font-size:11px'>Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit.
+                  </div>
+                </li>
+                <li data-transition='random' data-slotamount='7' data-masterspeed='1000'
+                  data-thumb='assets/images/SlideShow/1.jpg'>
+                  <img src='assets/images/SlideShow/8.jpg' data-bgposition='left top' data-bgfit='cover'
+                    data-bgrepeat='no-repeat' alt="banner" />
+                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='45' data-y='30' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>
+                    Exclusive of designer
+                  </div>
+                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45' data-y='70' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>
+                    Handbags & Purses
+                  </div>
+                  <div class='tp-caption sfb  tp-resizeme ' data-x='45' data-y='360' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>
+                    <a href='#' class="view-more">
+                      View More
+                    </a>
+                    <a href='#' class="buy-btn">
+                      Buy Now
+                    </a>
+                  </div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='130' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>In augue urna, nunc, tincidunt, augue,<br>
+                    augue facilisis facilisis.</div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='400' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;font-size:11px'>Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit.
+                  </div>
+                </li>
+                <li data-transition='random' data-slotamount='7' data-masterspeed='1000'
+                  data-thumb='assets/images/SlideShow/1.jpg'>
+                  <img src='assets/images/SlideShow/9.jpg' data-bgposition='left top' data-bgfit='cover'
+                    data-bgrepeat='no-repeat' alt="banner" />
+                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='45' data-y='30' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>
+                    Exclusive of designer
+                  </div>
+                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45' data-y='70' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>
+                    Handbags & Purses
+                  </div>
+                  <div class='tp-caption sfb  tp-resizeme ' data-x='45' data-y='360' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>
+                    <a href='#' class="view-more">
+                      View More
+                    </a>
+                    <a href='#' class="buy-btn">
+                      Buy Now
+                    </a>
+                  </div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='130' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>In augue urna, nunc, tincidunt, augue,<br>
+                    augue facilisis facilisis.</div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='400' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;font-size:11px'>Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit.
+                  </div>
+                </li>
+                <li data-transition='random' data-slotamount='7' data-masterspeed='1000'
+                  data-thumb='assets/images/SlideShow/1.jpg'>
+                  <img src='assets/images/SlideShow/10.jpg' data-bgposition='left top' data-bgfit='cover'
+                    data-bgrepeat='no-repeat' alt="banner" />
+                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='45' data-y='30' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>
+                    Exclusive of designer
+                  </div>
+                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='45' data-y='70' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>
+                    Handbags & Purses
+                  </div>
+                  <div class='tp-caption sfb  tp-resizeme ' data-x='45' data-y='360' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>
+                    <a href='#' class="view-more">
+                      View More
+                    </a>
+                    <a href='#' class="buy-btn">
+                      Buy Now
+                    </a>
+                  </div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='130' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>In augue urna, nunc, tincidunt, augue,<br>
+                    augue facilisis facilisis.</div>
+                  <div class='tp-caption Title sft  tp-resizeme ' data-x='45' data-y='400' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;font-size:11px'>Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit.
+                  </div>
+                </li>
+            </ul>
+            <div class="tp-bannertimer"></div>
+          </div>
+        </div>
+      </div>
+      <aside class="col-xs-12 col-sm-12 col-md-3">
+        <div class="RHS-banner">
+          <div class="add"><a href="#"><img alt="banner-img" src="assets/images/rhs-banner1.jpg"></a></div>
+          <div class="add"><a href="#"><img alt="banner-img" src="assets/images/rhs-banner2.jpg"></a></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>

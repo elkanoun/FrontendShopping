@@ -1,0 +1,84 @@
+<section class="main-container col1-layout">
+  <div class="main container">
+    <div class="col-main">
+      <div class="row">
+        <div class="product-view">
+          <div class="product-essential">
+            <form action="#" method="post" id="product_addtocart_form">
+              <input name="form_key" value="6UbXroakyQlbfQzK" type="hidden">
+              <div class="product-img-box col-lg-6 col-sm-6 col-xs-12">
+                  <img class="moreview_thumb_image"
+                      src="http://localhost:8080/photoProduct/{{product.id}}" alt="thumbnail"> 
+                <div class="moreview-control"> <a href="javascript:void(0)" class="moreview-prev"></a> <a
+                    href="javascript:void(0)" class="moreview-next"></a> </div>
+              </div>
+              <div class="product-shop col-lg-6 col-sm-6 col-xs-12">
+                <div class="product-next-prev"> <a class="product-next" href="#"><span></span></a> <a
+                    class="product-prev" href="#"><span></span></a> </div>
+                <div class="product-name">
+                  <h1>{{product.name}}</h1>
+                </div>
+                <div class="ratings">
+                  <div class="rating-box">
+                    <div class="rating"></div>
+                  </div>
+                  <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add
+                      Your Review</a> </p>
+                </div>
+                <p class="availability in-stock">Availability: <span>In stock</span></p>
+                <div class="price-block">
+                  <div class="price-box">
+                    <p class="old-price" *ngIf="product.promotion != 0"> <span class="price-label">Regular Price:</span> <span class="price"> {{product.currentPrice}} Dhs
+                      </span> </p>
+                    <p class="special-price"> 
+                      <span class="price-label">
+                        Special Price
+                      </span>
+                      <span class="price" [textContent]="product.promotion > 0 ? product.currentPrice * ((100 - product.promotion)/100) + ' Dhs' : product.currentPrice + ' Dhs'">
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <div class="short-description">
+                  <h2>Quick Overview</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique
+                    auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper.
+                    Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>
+                </div>
+                <div class="add-to-box">
+                  <div class="add-to-cart">
+                    <label for="qty">Quantity:</label>
+                    <div class="pull-left">
+                      <div class="custom pull-left">
+                        <button
+                          class="reduced items-count" type="button"><i class="icon-minus">&nbsp;</i></button>
+                        <input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty"
+                          name="qty">
+                        <button
+                          class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>
+                      </div>
+                    </div>
+                    <button onClick="productAddToCartForm.submit(this)" class="button btn-cart" title="Add to Cart"
+                      type="button"><span><i class="icon-basket"></i> Add to Cart</span></button>
+                  </div>
+                </div>
+                <div class="social">
+                  <ul>
+                    <li class="fb"><a href="#"></a></li>
+                    <li class="tw"><a href="#"></a></li>
+                    <li class="googleplus"><a href="#"></a></li>
+                    <li class="rss"><a href="#"></a></li>
+                    <li class="pintrest"><a href="#"></a></li>
+                    <li class="linkedin"><a href="#"></a></li>
+                    <li class="youtube"><a href="#"></a></li>
+                  </ul>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End main-container -->

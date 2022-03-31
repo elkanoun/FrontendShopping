@@ -1,0 +1,162 @@
+<section class="main-container col1-layout">
+  <div class="main container">
+    <div class="account-login">
+      <div class="page-title">
+        <h2>Login or Create an Account</h2>
+      </div>
+      <fieldset class="col2-set">
+        <legend>Login or Create an Account</legend>
+        <div class="col-1 new-users"><strong>New Customers</strong>
+          <div class="content">
+            <p>By creating an account with our store, you will be able to move through the checkout process faster,
+              store multiple shipping addresses, view and track your orders in your account and more.</p>
+            <div class="buttons-set">
+              <button class="button create-account" type="button" (click)="nweUser = !nweUser"
+                *ngIf="!nweUser"><span>Create an Account</span></button>
+            </div>
+            <div *ngIf="nweUser">
+              <form #registerForm="ngForm" (ngSubmit)="registerInfo(registerForm)" id="disabled_co-shipping-form">
+                <fieldset class="group-select">
+                  <ul>
+                    <li id="disabled_shipping-new-address-form">
+                      <fieldset>
+                        <ul>
+                          <li>
+                            <div class="customer-name">
+                              <div class="input-box name-firstname">
+                                <label for="disabled_shipping:firstname"> First Name <span class="required">*</span>
+                                </label>
+                                <br>
+                                <input type="text" id="disabled_shipping:firstname" name="userInfo.firstName"
+                                  [(ngModel)]="userInfo.firstName" title="First Name" class="input-text required-entry">
+                              </div>
+                              <div class="input-box name-lastname">
+                                <label for="disabled_shipping:lastname"> Last Name <span class="required">*</span>
+                                </label>
+                                <br>
+                                <input type="text" id="disabled_shipping:lastname" name="userInfo.lastName"
+                                  [(ngModel)]="userInfo.lastName" title="Last Name" class="input-text required-entry">
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <label for="disabled_shipping:company">Email <span class="required">*</span></label>
+                            <br>
+                            <input type="text" id="disabled_shipping:company" name="userInfo.email"
+                              [(ngModel)]="userInfo.email" title="Company" class="input-text">
+                          </li>
+                          <li>
+                            <label for="disabled_shipping:street1">Address <span class="required">*</span></label>
+                            <br>
+                            <input type="text" title="Street Address" name="userInfo.address1"
+                              [(ngModel)]="userInfo.address1" id="disabled_shipping:street1" value=""
+                              class="input-text required-entry">
+                          </li>
+                          <li>
+                            <input type="text" title="Street Address 2" name="userInfo.address2"
+                              [(ngModel)]="userInfo.address2" id="disabled_shipping:street2" value=""
+                              class="input-text">
+                          </li>
+                          <li>
+                            <div class="input-box">
+                              <label for="disabled_shipping:country_id">Country <span class="required">*</span></label>
+                              <br>
+                              <select name="userInfo.country" [(ngModel)]="userInfo.country" class="validate-select"
+                                id="country" (change)="selectedCountry($event)" *ngIf="countries">
+                                <option value="144">Morocco</option>
+                                <option *ngFor="let country of countries._embedded.countries" value="country.id">
+                                  {{ country.name }}
+                                </option>
+                              </select>
+                            </div>
+                            <div class="input-box">
+                              <label for="disabled_shipping:city">City <span class="required">*</span></label>
+                              <br>
+                              <select title="State/Province" name="userInfo.city" [(ngModel)]="userInfo.city"
+                                id="region_id" class="required-entry validate-select" *ngIf="citiesOfCountry">
+                                <option value="">Please select region, state or province</option>
+                                <option *ngFor="let city of citiesOfCountry._embedded.cities" value="{{city.id}}"
+                                  title="Alabama">{{city.name}}</option>
+                              </select>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="input-box">
+                              <label for="disabled_shipping:postcode">Zip/Postal Code <span
+                                  class="required">*</span></label>
+                              <br>
+                              <input type="text" title="Zip/Postal Code" id="disabled_shipping:postcode"
+                                name="userInfo.zipCode" [(ngModel)]="userInfo.zipCode"
+                                class="input-text validate-zip-international required-entry">
+                            </div>
+                            <div class="input-box">
+                              <label for="disabled_shipping:telephone">Telephone <span class="required">*</span></label>
+                              <br>
+                              <input type="text" name="userInfo.telephone" [(ngModel)]="userInfo.telephone"
+                                title="Telephone" class="input-text required-entry" id="disabled_shipping:telephone">
+                            </div>
+                          </li>
+                          <li>
+                            <div class="input-box">
+                              <label for="disabled_shipping:postcode">Password <span class="required">*</span></label>
+                              <br>
+                              <input [type]="passShow?'text':'password'" title="Zip/Postal Code" id="postcode:postcode"
+                                name="userInfo.password" [(ngModel)]="userInfo.password"
+                                class="input-text validate-zip-international required-entry">
+                            </div>
+                            <div class="input-box">
+                              <label for="disabled_shipping:telephone">Confirm <span class="required">*</span></label>
+                              <br>
+                              <input [type]="passShow?'text':'password'" name="userInfo.confirm" [(ngModel)]="userInfo.confirm"
+                                title="Telephone" class="input-text required-entry" id="confirm:confirm">
+                                
+                                &nbsp;&nbsp;
+                                <span 
+                                [class]="passShow?'icon-eye-open':'icon-eye-close'"
+                                (click)="this.passShow = !this.passShow"></span>
+                            </div>
+                          </li>
+                        </ul>
+                      </fieldset>
+                    </li>
+                  </ul>
+                  <div class="buttons-set1" id="disabled_shipping-buttons-container">
+                    <button class="button"><span>Register</span></button>
+                  </div>
+                  <div class="buttons-set1" id="disabled_shipping-buttons-container">
+                    <button class="button" (click)="nweUser = !nweUser"><span>Cancel</span></button>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 registered-users"><strong>Registered Customers</strong>
+          <div class="content">
+            <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+              <p>If you have an account with us, please log in.</p>
+              <ul class="form-list">
+                <li>
+                  <label for="email">Email Address <span class="required">*</span></label>
+                  <br>
+                  <input [(ngModel)]="user.username" type="text" title="Email Address" class="input-text required-entry" id="email" value=""
+                    name="user.username">
+                </li>
+                <li>
+                  <label for="pass">Password <span class="required">*</span></label>
+                  <br>
+                  <input [(ngModel)]="user.password" type="password" title="Password" id="pass"
+                    class="input-text required-entry validate-password" name="user.password">
+                </li>
+              </ul>
+              <p class="required" *ngIf="loginInvalid">Invalid user name or password</p>
+              <div class="buttons-set">
+                <button id="send2" name="send" type="submit" class="button login"><span>Login</span></button>
+               </div>
+            </form>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,101 @@
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <ul>
+        <li class="home"> <a href="index.html" title="Go to Home Page">Home</a><span>&mdash;›</span></li>
+        <li class=""> <a href="grid.html" title="Go to Home Page">Women</a><span>&mdash;›</span></li>
+        <li class="category13"><strong>Tops &amp; Tees</strong></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- <app-detail *ngIf="isDetail" [product]="product"></app-detail>
+<app-quick-view *ngIf="isQuickView" [product]="product"></app-quick-view> -->
+<div class="main-container col2-left-layout" *ngIf="!isQuickView">
+  <div class="main container">
+    <div class="row">
+      <section class="col-main col-sm-9 col-sm-push-3 wow bounceInUp animated">
+        <div class="category-description std">
+          <div class="slider-items-products">
+            <div id="category-desc-slider" class="product-flexslider hidden-buttons">
+              <div class="slider-items slider-width-col1">
+
+                <div class="item"> <a href="#x"><img alt="" src="assets/images/category-banner1.jpg"></a>
+                  <div class="cat-img-title cat-bg cat-box">
+                    <h2 class="cat-heading">Category Banner</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                </div>
+                <div class="item"> <a href="#x"><img alt="" src="assets/images/women_banner1.png"></a> </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="category-title">
+          <h1>Tops &amp; Tees</h1>
+        </div>
+        <div class="category-products">
+          <div class="toolbar">
+            <div class="sorter">
+              <div class="view-mode">
+                <span (click)="isGrid = !isGrid" title="Grid" class="button button-grid " [ngClass]="{
+                    'button-active': isGrid
+                  }">Grid</span>
+                <span (click)="isGrid = !isGrid" title="List" class="button button-list " [ngClass]="{
+                    'button-active': !isGrid
+                  }">List</span>
+              </div>
+            </div>
+            <div id="sort-by">
+              <label class="left">Sort By: </label>
+              <ul>
+                <li><a href="#">Position<span class="right-arrow"></span></a>
+                  <ul>
+                    <li><a href="#">Name</a></li>
+                    <li><a href="#">Price</a></li>
+                    <li><a href="#">Position</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <a class="button-asc left" href="#" title="Set Descending Direction"><span
+                  class="glyphicon glyphicon-arrow-up"></span></a>
+            </div>
+            <div class="pager">
+              <div id="limiter">
+                <label>View: </label>
+                <ul>
+                  <li><a href="#">15<span class="right-arrow"></span></a>
+                    <ul>
+                      <li><a href="#">20</a></li>
+                      <li><a href="#">30</a></li>
+                      <li><a href="#">35</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="pages">
+                <label>Page:</label>
+                <ul class="pagination">
+                  <li><a href="#">&laquo;</a></li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <app-category [result]="result" [isGrid]="isGrid" *ngIf="param === 'D'"></app-category>
+          <app-sub-category [result]="result" [isGrid]="isGrid" *ngIf="param === 'C'"></app-sub-category>
+          <app-product [result]="result" [isGrid]="isGrid" *ngIf="param === 'SC'" (currentProduct)="productDetail($event)"></app-product>
+          </div>
+      </section>
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+</div>

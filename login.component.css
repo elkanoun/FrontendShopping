@@ -1,0 +1,16 @@
+
+.group-select li input.input-text, .group-select li textarea,
+.group-select li .input-box input.input-text,
+.group-select li .input-box textarea,
+.group-select li .input-box select
+ {    
+    background: #fff;
+    border: 1px solid #f7f7f7;
+    padding: 10px;
+    width: 80%;
+    margin-top: 5px;
+    outline: none;
+}
+.buttons-set1{
+    display: inline;
+}
